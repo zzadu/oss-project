@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("Git Clone") {
             steps {
-                git 'https://github.com/zzadu/GMIdeaTeam.git'
+                git 'https://github.com/zzadu/oss-project.git'
             }
         }
         stage("Build image") {

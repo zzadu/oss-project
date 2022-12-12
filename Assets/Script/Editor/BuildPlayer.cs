@@ -12,7 +12,7 @@ public class BuildPlayer
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = FindEnabledEditorScenes();
-        buildPlayerOptions.locationPathName = "/build/Dino.html";
+        buildPlayerOptions.locationPathName = "/build/Dino";
         buildPlayerOptions.target = BuildTarget.WebGL;
         buildPlayerOptions.options = BuildOptions.Development;
 

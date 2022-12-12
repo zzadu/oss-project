@@ -12,7 +12,7 @@ public class BuildPlayer
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = FindEnabledEditorScenes();
-        buildPlayerOptions.locationPathName = "/build";
+        buildPlayerOptions.locationPathName = "/build/Dino.exe";
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
         buildPlayerOptions.options = BuildOptions.Development;
 

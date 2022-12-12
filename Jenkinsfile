@@ -29,7 +29,6 @@ pipeline {
             steps {
                 script {
                     app.inside {
-                        sh "mkdir -p /build/"
                         sh "${env.UNITY_PATH}/Editor/Unity -quit -batchmode -nographics -buildTarget Standalone -projectPath \"/app\" -executeMethod BuildPlayer.BuildWindow -username zzadu08@naver.com -password Test1234 -serial SC-M7N9-C9X2-G6AW-NEAP-HYT3 -logFile - -quit"
                     }
                 }

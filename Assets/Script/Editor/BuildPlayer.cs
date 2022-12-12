@@ -12,9 +12,9 @@ public class BuildPlayer
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = FindEnabledEditorScenes();
-        buildPlayerOptions.locationPathName = "build";
+        buildPlayerOptions.locationPathName = "/build";
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
-        buildPlayerOptions.options = BuildOptions.None;
+        buildPlayerOptions.options = BuildOptions.Development;
 
         BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
         BuildSummary summary = report.summary;

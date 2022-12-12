@@ -8,12 +8,12 @@ using UnityEditor.Build.Reporting;
 public class BuildPlayer
 {
     [MenuItem("Build/Standalone")]
-    public static void BuildWindow()
+    public static void BuildWebGL()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
         buildPlayerOptions.scenes = FindEnabledEditorScenes();
-        buildPlayerOptions.locationPathName = "/build/Dino.exe";
-        buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
+        buildPlayerOptions.locationPathName = "/build/Dino.html";
+        buildPlayerOptions.target = BuildTarget.WebGL;
         buildPlayerOptions.options = BuildOptions.Development;
 
         BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);

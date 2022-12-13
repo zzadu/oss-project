@@ -5,8 +5,10 @@ RUN $UNITY_PATH/Editor/Unity -quit -batchmode -nographics -buildTarget WebGL -pr
 
 FROM bitnami/node:9-prod
 COPY --from=gameBuilder /build/Dino /app
-COPY --from=gameBuilder /app/*file /app
-COPY --from=gameBuilder /app/*.js* /app
+COPY --from=gameBuilder /app/Dockerfile /app
+COPY --from=gameBuilder /app/Jenkinsfile /app
+COPY --from=gameBuilder /app/app.js /app
+COPY --from=gameBuilder /app/package.js /app
 WORKDIR /app
 RUN npm install
 

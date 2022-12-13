@@ -14,7 +14,7 @@ public class BuildPlayer
         buildPlayerOptions.scenes = FindEnabledEditorScenes();
         buildPlayerOptions.locationPathName = "/build/Dino";
         buildPlayerOptions.target = BuildTarget.WebGL;
-        buildPlayerOptions.options = BuildOptions.Development;
+        buildPlayerOptions.options = BuildOptions.None;
 
         BuildReport report = BuildPipeline.BuildPlayer(buildPlayerOptions);
         BuildSummary summary = report.summary;

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dino
+  labels:
+    app: dino
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: dino
+  template:
+    metadata:
+      labels:
+        app: dino
+        tier: dino
+    spec:
+      containers:
+      - name: dino
+        image: zzadu/dino:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: dino
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dino
+  labels:
+    app: dino
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: dino
+    tier: dino
+  type: LoadBalancer

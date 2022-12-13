@@ -2,8 +2,17 @@ pipeline {
     agent any
     environment {
         REPOSITORY_NAME = 'oss-project'
+        PROJECT_ID = 'my-project-362315'
+        CLUSTER_NAME = 'kubernetes'
+        LOCATION = 'asia-northeast3-a'
+        CREDENTIALS_ID = 'gke'
     }
     stages {
+        stage("Checkout code") {
+            steps {
+                checkout scm
+            }
+        }
         stage("Git Clone") {
             steps {
                 git 'https://github.com/zzadu/oss-project.git'
@@ -12,7 +21,7 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    app = docker.build("zzadu/unity:latest")
+                    app = docker.build("zzadu/dino:latest")
                 }
             }
         }
@@ -25,11 +34,13 @@ pipeline {
                 }
             }
         }
-        stage("Deploy to Slack") {
-            when {
-                branch 'master'
+        stage('Deploy to GKE') {
+			when {
+				branch 'main'
+			}
+            steps{
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
-
     }
 }

@@ -8,7 +8,7 @@ COPY --from=gameBuilder /build/Dino /app
 COPY --from=gameBuilder /app/Dockerfile /app
 COPY --from=gameBuilder /app/Jenkinsfile /app
 COPY --from=gameBuilder /app/app.js /app
-COPY --from=gameBuilder /app/package.js /app
+COPY --from=gameBuilder /app/package.json /app
 WORKDIR /app
 RUN npm install
 

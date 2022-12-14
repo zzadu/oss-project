@@ -1,8 +1,9 @@
 const express = require('express');
-
+const compression = require('compression');
 const PORT = process.env.PORT || 80
 
 const app = express();
+app.use(compression());
 app.use('/Build', express.static(__dirname + '/Build'));
 app.use('/TemplateData', express.static(__dirname +'/TemplateData'));
 

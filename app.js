@@ -3,7 +3,7 @@ const express = require('express');
 const PORT = process.env.PORT || 80
 
 const app = express();
-app.use(express.static('Build'));
+app.use('/Build', express.static('Build'));
 app.get('/', function(req, res) {
     res.sendFile(__dirname + "/index.html")
 })

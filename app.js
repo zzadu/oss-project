@@ -4,7 +4,8 @@ const PORT = 80;
 
 const app = express();
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + "index.html");
+    res.send("hello!");
+    //res.sendFile(__dirname + "index.html");
     console.log('ok');
 });
 

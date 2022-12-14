@@ -10,6 +10,7 @@ COPY --from=gameBuilder /app/Jenkinsfile /app
 COPY --from=gameBuilder /app/app.js /app
 COPY --from=gameBuilder /app/package.json /app
 WORKDIR /app
+ENV PORT 5000
 RUN npm install
 
 CMD ["npm", "start"]

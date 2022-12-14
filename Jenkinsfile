@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        REPOSITORY_NAME = 'oss-project'
         PROJECT_ID = 'my-project-362315'
         CLUSTER_NAME = 'kubernetes'
         LOCATION = 'asia-northeast3-a'
@@ -39,7 +38,8 @@ pipeline {
 				branch 'master'
 			}
             steps{
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml',
+                credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public static float defaultSpeed = 0.01f;
+    public static float defaultSpeed = 0.05f;
     public static float speed = defaultSpeed;
     Animator animator;
     GameObject Quiz;

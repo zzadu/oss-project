@@ -3,6 +3,8 @@ const PORT = process.env.PORT || 80
 
 const app = express();
 app.use('/Build', express.static(__dirname +'/Build'));
+app.use('/TemplateData', express.static(__dirname +'/TemplateData'));
+
 app.get('/', function(req, res) {
     res.sendFile(__dirname + "/index.html")
 })

@@ -7,7 +7,6 @@
       "start": "node app.js"
     },
     "dependencies": {
-      "express": "^4.13",
-      "compression":"1.7.4"
+      "express": "^4.13"
     }
   }
